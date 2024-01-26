@@ -1,5 +1,6 @@
+import AuthForm from "../components/AuthForm";
 const SignUpPage = () => {
-    return <h1>Sign Up</h1>;
-}
+  return <AuthForm />;
+};
 
 export default SignUpPage;
