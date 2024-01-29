@@ -8,7 +8,7 @@ const AuthForm = ({ isLogin = false }) => {
     'email':'',
     'password':'',
     'age':0,
-    'civilStatus':'Single',
+    'civilStatus':'single',
     'events':[],
     'dog':''
   }
@@ -23,7 +23,12 @@ const AuthForm = ({ isLogin = false }) => {
     }));
   };
 
-  const statusOptions = ["Single", "Married", "Just for fun"];
+  const statusOptions = [
+    { value: 'single', label: 'single' },
+    { value: 'married', label: 'Married' },
+    { value: 'just for fun', label: 'Just For Fun' }
+  ]
+
   /* const [errorMsg, setErrorMsg] = useState()
    */
   const navigate = useNavigate();
@@ -105,10 +110,10 @@ const AuthForm = ({ isLogin = false }) => {
           </label>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Status
-            <select value={data.civilStatus} onChange={handleChange} required>
-              {statusOptions.map((option, index) => (
-                <option key={index} value={option}>
-                  {option}
+            <select name="civilStatus" value={data.civilStatus} onChange={handleChange} required>
+              {statusOptions.map((option) => (
+                <option key={option.label} value={option.value}>
+                  {option.value}
                 </option>
               ))}
             </select>
