@@ -2,12 +2,27 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 const AuthForm = ({ isLogin = false }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState("");
-  const [status, setStatus] = useState("");
+  const initialValues = {
+    'firstName':'',
+    'lastName':'',
+    'email':'',
+    'password':'',
+    'age':0,
+    'civilStatus':'Single',
+    'events':[],
+    'dog':''
+  }
+
+  const [data, setData] = useState(initialValues)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const statusOptions = ["Single", "Married", "Just for fun"];
   /* const [errorMsg, setErrorMsg] = useState()
    */
@@ -15,27 +30,15 @@ const AuthForm = ({ isLogin = false }) => {
 
   const { saveToken } = useContext(AuthContext);
 
-  const handleEmail = (event) => setEmail(event.target.value);
-  const handlePassword = (event) => setPassword(event.target.value);
-  const handleFirstName = (event) => setFirstName(event.target.value);
-  const handleLastName = (event) => setLastName(event.target.value);
-  const handleAge = (event) => setAge(event.target.value);
-  const handleStatus = (event) => setStatus(event.target.value);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const reqBody = isLogin
-      ? { email, password }
-      : { email, password, firstName, lastName, age, status }; // The fields for signing
-      console.log(reqBody)
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/auth/${isLogin ? "login" : "signup"}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(reqBody),
+          body: JSON.stringify(data),
         }
       );
 
@@ -59,7 +62,7 @@ const AuthForm = ({ isLogin = false }) => {
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2">
           Email
-          <input type="email" required value={email} onChange={handleEmail}/>
+          <input type="email" name="email" required value={data.email} onChange={handleChange}/>
         </label>
       </div>
       <div className="mb-4">
@@ -67,9 +70,10 @@ const AuthForm = ({ isLogin = false }) => {
           Password
           <input
               type="password"
+              name="password"
               required
-              value={password}
-              onChange={handlePassword}
+              value={data.password}
+              onChange={handleChange}
           />
         </label>
       </div>
@@ -79,27 +83,29 @@ const AuthForm = ({ isLogin = false }) => {
               First Name
               <input
                   type="text"
+                  name="firstName"
                   required
-                  value={firstName}
-                  onChange={handleFirstName}
+                  value={data.firstName}
+                  onChange={handleChange}
             />
           </label>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Last Name
             <input
               type="text"
+              name="lastName"
               required
-              value={lastName}
-              onChange={handleLastName}
+              value={data.lastName}
+              onChange={handleChange}
             />
           </label>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Age
-            <input type="number" required value={age} onChange={handleAge} />
+            <input type="number" name="age" required value={data.age} onChange={handleChange} />
           </label>
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Status
-            <select value={status} onChange={handleStatus} required>
+            <select value={data.civilStatus} onChange={handleChange} required>
               {statusOptions.map((option, index) => (
                 <option key={index} value={option}>
                   {option}
@@ -108,7 +114,6 @@ const AuthForm = ({ isLogin = false }) => {
             </select>
           </label>
         </>
-
       )}
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">{isLogin ? "Login" : "Signup"}</button>
     </form>
