@@ -27,8 +27,8 @@ const AuthForm = ({ isLogin = false }) => {
 
     const reqBody = isLogin
       ? { email, password }
-      : { email, password, firstName, lastName, age, status }; // The fields for signin
-
+      : { email, password, firstName, lastName, age, status }; // The fields for signing
+      console.log(reqBody)
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/auth/${isLogin ? "login" : "signup"}`,
@@ -42,6 +42,7 @@ const AuthForm = ({ isLogin = false }) => {
       if (response.status === 201) {
         navigate("/login");
       }
+
       if (response.status === 200) {
         const parsed = await response.json();
         console.log(parsed);
@@ -72,8 +73,6 @@ const AuthForm = ({ isLogin = false }) => {
           />
         </label>
       </div>
-
-
       {!isLogin && (
           <>
             <label className="block text-gray-700 text-sm font-bold mb-2">
