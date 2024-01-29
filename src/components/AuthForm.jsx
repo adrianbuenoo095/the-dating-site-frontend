@@ -53,34 +53,39 @@ const AuthForm = ({ isLogin = false }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input type="email" required value={email} onChange={handleEmail} />
-      </label>
+      <div className="w-full max-w-xs">
+    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Email
+          <input type="email" required value={email} onChange={handleEmail}/>
+        </label>
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2">
+          Password
+          <input
+              type="password"
+              required
+              value={password}
+              onChange={handlePassword}
+          />
+        </label>
+      </div>
 
-      <label>
-        Password
-        <input
-          type="password"
-          required
-          value={password}
-          onChange={handlePassword}
-        />
-      </label>
 
       {!isLogin && (
-        <>
-          <label>
-            First Name
-            <input
-              type="text"
-              required
-              value={firstName}
-              onChange={handleFirstName}
+          <>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              First Name
+              <input
+                  type="text"
+                  required
+                  value={firstName}
+                  onChange={handleFirstName}
             />
           </label>
-          <label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Last Name
             <input
               type="text"
@@ -89,11 +94,11 @@ const AuthForm = ({ isLogin = false }) => {
               onChange={handleLastName}
             />
           </label>
-          <label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Age
             <input type="number" required value={age} onChange={handleAge} />
           </label>
-          <label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
             Status
             <select value={status} onChange={handleStatus} required>
               {statusOptions.map((option, index) => (
@@ -104,10 +109,12 @@ const AuthForm = ({ isLogin = false }) => {
             </select>
           </label>
         </>
-      )}
 
-      <button type="submit">{isLogin ? "Login" : "Signup"}</button>
+      )}
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">{isLogin ? "Login" : "Signup"}</button>
     </form>
+      </div>
+
   );
 };
 
