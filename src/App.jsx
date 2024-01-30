@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePape";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundpage";
 import SignUpPage from "./pages/SignUpPage";
+import NewDogPage from "./pages/NewDogPage";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
-
+      <Route path="/newdog" element={<NewDogPage />} />
       <Route path="*" exact={true} element={<NotFoundPage />} />
     </Routes>
   );
