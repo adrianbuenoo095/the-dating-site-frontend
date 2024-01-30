@@ -24,7 +24,7 @@ const AuthForm = ({ isLogin = false }) => {
   };
 
   const statusOptions = [
-    { value: 'single', label: 'single' },
+    { value: 'single', label: 'Single' },
     { value: 'married', label: 'Married' },
     { value: 'just for fun', label: 'Just For Fun' }
   ]
