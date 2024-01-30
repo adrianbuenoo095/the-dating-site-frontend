@@ -33,13 +33,13 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <Header/>
+      <Header />
       <main className="flex flex-wrap justify-center">
         {items.map((item) => (
           <Card key={item.id} {...item} />
         ))}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
