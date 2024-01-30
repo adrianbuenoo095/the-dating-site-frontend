@@ -3,6 +3,7 @@ import Card from "../components/Card"; // Adjust the path as necessary
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
+
 const HomePage = () => {
   const [items, setItems] = useState([]);
 
@@ -33,13 +34,13 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      <Header/>
+      <Header />
       <main className="flex flex-wrap justify-center">
         {items.map((item) => (
           <Card key={item.id} {...item} />
         ))}
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
