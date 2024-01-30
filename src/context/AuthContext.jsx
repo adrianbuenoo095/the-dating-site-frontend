@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 export const AuthContext = createContext();
 
@@ -50,7 +50,7 @@ const AuthContextProvider = ({ children }) => {
           },
           body: JSON.stringify(payload),
           method,
-        }
+        },
       );
       return response;
     } catch (error) {
