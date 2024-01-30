@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card from "../components/Card"; // Adjust the path as necessary
+import Card from "../components/Card.jsx"; // Adjust the path as necessary
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
