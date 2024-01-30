@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card"; // Adjust the path as necessary
-import Navbar from "../components/NavBar";
+import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 const HomePage = () => {
