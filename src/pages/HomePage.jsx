@@ -1,6 +1,14 @@
+<<<<<<< HEAD:src/pages/HomePape.jsx
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card";
 import Navbar from "../components/NavBar";
+=======
+import { useState, useEffect } from "react";
+import Card from "../components/Card"; // Adjust the path as necessary
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import Header from "../components/Header.jsx";
+>>>>>>> 2c80d837d6f741c951b585a1b9cc8ddb9679f71f:src/pages/HomePage.jsx
 const HomePage = () => {
   const [items, setItems] = useState([]);
 
@@ -31,12 +39,13 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-
+      <Header/>
       <main className="flex flex-wrap justify-center">
         {items.map((item) => (
           <Card key={item.id} {...item} />
         ))}
       </main>
+      <Footer/>
     </div>
   );
 };

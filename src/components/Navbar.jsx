@@ -6,8 +6,8 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <nav className="bg-gray-800 text-white p-4">
-      <ul className="flex items-center justify-between">
+    <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
+      <ul>
         <li>
           <Link to="/" className="text-white hover:text-gray-300 mr-6">
             <img src="#" alt="homeimg" />
