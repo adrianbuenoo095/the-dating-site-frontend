@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <nav>
+    <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -14,7 +14,7 @@ const Navbar = () => {
         {isAuthenticated ? (
           <>
             <li>
-              <Link to="/books/new">New book</Link>
+              <Link to="/">New Event</Link>
             </li>
             <li>
               <button type="button" onClick={logout}>
