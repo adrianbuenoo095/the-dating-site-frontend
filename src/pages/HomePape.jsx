@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Card from "../components/Card"; // Adjust the path as necessary
 import Navbar from "../components/NavBar";
+import Footer from "../components/Footer.jsx";
 const HomePage = () => {
   const [items, setItems] = useState([]);
 
@@ -37,6 +38,7 @@ const HomePage = () => {
           <Card key={item.id} {...item} />
         ))}
       </main>
+      <Footer/>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <nav>
+    <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
       <ul>
         <li>
           <Link to="/">Home</Link>
