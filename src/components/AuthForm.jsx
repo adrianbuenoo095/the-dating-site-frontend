@@ -104,6 +104,8 @@ const AuthForm = ({ isLogin = false }) => {
                 onChange={handleChange}
               />
             </label>
+          </div>
+          <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Last Name
               <input
@@ -114,6 +116,8 @@ const AuthForm = ({ isLogin = false }) => {
                 onChange={handleChange}
               />
             </label>
+          </div>
+          <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Age
               <input
@@ -124,6 +128,8 @@ const AuthForm = ({ isLogin = false }) => {
                 onChange={handleChange}
               />
             </label>
+          </div>
+          <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">
               Status
               <select
@@ -140,6 +146,7 @@ const AuthForm = ({ isLogin = false }) => {
               </select>
             </label>
           </div>
+          </>
         )}
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
