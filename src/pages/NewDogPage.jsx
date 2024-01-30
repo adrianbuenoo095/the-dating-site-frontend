@@ -1,9 +1,12 @@
 import DogForm from "../components/DogForm";
 
 const NewDogPage = () => {
-    return ( 
 
-    <DogForm /> );
+
+
+    return ( 
+    <DogForm />
+    );
 }
  
 export default NewDogPage;
