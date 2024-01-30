@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/Card"; // Adjust the path as necessary
+import Card from "../components/Card";
 import Navbar from "../components/NavBar";
 const HomePage = () => {
   const [items, setItems] = useState([]);
