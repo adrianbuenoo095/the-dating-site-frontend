@@ -1,4 +1,5 @@
 import headerImage from "../assets/puppy.jpg";
+import {Button} from "./Button.jsx";
 const Header = () => {
     return (
         <>
@@ -11,6 +12,7 @@ const Header = () => {
                     <h1 className="text-4xl font-bold text-white">
                         Welcome!!
                     </h1>
+                    <Button/>
                 </div>
             </header>
         </>
