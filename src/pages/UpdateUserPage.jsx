@@ -20,20 +20,21 @@ const UpdateUserPage = () => {
   const [data, setData] = useState(initialValues);
   const {fetchWithToken} = useContext(AuthContext);
   const navigate = useNavigate()
-  
-  useEffect(() => {
+
     const fetchOneUser = async () => {
         try {
-          const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/${userId}`)
-  
-          if (response.ok) {
-            const userData = await response.json()
-            setData(userData)
-          }
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users/${userId}`)
+
+            if (response.ok) {
+                const userData = await response.json()
+                setData(userData)
+            }
         } catch (error) {
-          console.log('Something went wrong ', error)
+            console.log('Something went wrong ', error)
         }
-      }
+    }
+
+  useEffect(() => {
       fetchOneUser()
     }, [userId])
 
@@ -63,36 +64,12 @@ const UpdateUserPage = () => {
           }
     }
     
-    return ( 
-        <div className="w-full max-w-xs">
+    return (
+        <div className="flex justify-center h-screen items-center mb-6">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
           onSubmit={handleSubmit}
         >
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Email
-              <input
-                type="email"
-                name="email"
-                required
-                value={data.email}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Password
-              <input
-                type="password"
-                name="password"
-                required
-                value={data.password}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
                 First Name
@@ -117,6 +94,30 @@ const UpdateUserPage = () => {
                 />
               </label>
             </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Email
+              <input
+                type="email"
+                name="email"
+                required
+                value={data.email}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Password
+              <input
+                type="password"
+                name="password"
+                required
+                value={data.password}
+                onChange={handleChange}
+              />
+            </label>
+          </div>
             <div>
               <label className="block text-gray-700 text-sm font-bold mb-2">
                 Age

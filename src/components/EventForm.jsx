@@ -1,54 +1,52 @@
-import { useState } from 'react'
+import {useNavigate, useParams } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext, useEffect, useState } from 'react'
 
-const EventForm = () => {
-  const [name, setName] = useState ('');
-  const [time, setTime] = useState (0);
-  const [eventDuration, setEventDuration] = useState (0);
-  const [location, setLocation] = useState ('');
-  const [user, setUser] = useState ('');
-  
-  const handleName = (e)=>{
-    setName(
-    e.target.value
-      )
-    //finish this 
+    const initialValues = {
+        name:"",
+        time:"",
+        eventDuration:"",
+        location:"",
+        user:"",
     }
-    
-    const handleTime = (e)=>{
-    //finish this 
-    setTime(
-      e.target.value
-     )
+const EventForm = ()=>{
+    const {fetchWithToken} = useContext(AuthContext);
+    const navigate = useNavigate()
+    const [data, setData] = useState(initialValues);
+
+    const handleChange = (e)=> {
+    const {name, value} = e.target;
+        setData(prevState => ({
+            ...prevState,
+            [name]:value,
+        }))
     }
-    
-    const handleEventDuration = (e)=>{
-      //finish this 
-      setEventDuration(
-        e.target.value
-      )
-    }
-    
-    const handleLocation = (e)=>{
-        //finish this 
-        setLocation(
-          e.target.value
-        )
-      }
-    
-    const handleUser = (e)=>{
-          //finish this 
-          setUser(
-            e.target.value
-          )
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const eventToCreate = data;
+        console.log("Event to Create:", eventToCreate)
+        try {
+            const response = await fetchWithToken('/events', 'POST', eventToCreate)
+            if (response.status === 201) {
+                const event = await response.json()
+                console.log(event)
+                navigate(`/events/${event._id}`)
+            } else {
+                console.log('Something went wrong')
+            }
+        } catch (error) {
+            console.error(error)
         }
+    };
+
     return  <div className="flex justify-center items-center">
-    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
           Name
           <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
-          leading-tight focus:outline-none focus:shadow-outline"
-           type="text" required value={name} onChange={handleName}/>
+          leading-tight focus:outline-none fohandleChange:shadow-outline"
+           type="text" required value={data.name} onChange={handleChange}/>
         </label>
       </div>
       <div className="mb-4">
@@ -59,8 +57,8 @@ const EventForm = () => {
               type="Date"
               placeholder="time"
               required
-              value={time}
-              onChange={handleTime}
+              value={data.time}
+              onChange={handleChange}
           />
         </label>
      </div>
@@ -74,8 +72,8 @@ const EventForm = () => {
               type="Number"
               placeholder="number"
               required
-              value={eventDuration}
-              onChange={handleEventDuration}
+              value={data.eventDuration}
+              onChange={handleChange}
           />
         </label>
      </div>
@@ -88,8 +86,8 @@ const EventForm = () => {
               type="Number"
               placeholder="place"
               required
-              value={location}
-              onChange={handleLocation}
+              value={data.location}
+              onChange={handleChange}
           />
         </label>
      </div>
@@ -102,8 +100,8 @@ const EventForm = () => {
               type="Schema"
               placeholder="user"
               required
-              value={user}
-              onChange={handleUser}
+              value={data.user}
+              onChange={handleChange}
           />
         </label>
      </div>
