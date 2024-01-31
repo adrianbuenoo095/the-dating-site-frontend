@@ -2,21 +2,21 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
-const EventPage = () => {
-  const { eventId } = useParams();
-  const [event, setEvent] = useState();
+const UserPage = () => {
+  const { userId } = useParams();
+  const [user, setUser] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchEvent = async () => {
+    const fetchUser = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/events/${eventId}`
+          `${import.meta.env.VITE_API_URL}/users/${userId}`
         );
         if (response.ok) {
-          const eventData = await response.json();
-          setEvent(eventData);
+          const userData = await response.json();
+          setEvent(userData);
         } else {
           console.log("Something went wrong");
         }
@@ -25,14 +25,14 @@ const EventPage = () => {
       }
     };
 
-    fetchEvent();
-  }, [eventId]);
+    fetchUser();
+  }, [userId]);
 
   const handleDelete = async () => {
     try {
-      const response = await fetchWithToken(`/events/${eventId}`, "DELETE");
+      const response = await fetchWithToken(`/users/${userId}`, "DELETE");
       if (response.status === 204) {
-        navigate("/events");
+        navigate("/users");
       }
     } catch (error) {
       console.log(error);
@@ -41,15 +41,12 @@ const EventPage = () => {
 
   return user ? (
     <>
-      <h1>Event Details</h1>
-      <p>{event.name}</p>
-      <p>{event.lastName}</p>
-      <p>{event.email}</p>
-      <p>{event.social}</p>
-      <p>{event.age}</p>
-      <p>{event.civilStatus}</p>
-      <p>{event.xxxxx}</p>
-      <p>{event.xxxxxx}</p>
+      <h1>User Details</h1>
+      <p>{user.firstName}</p>
+      <p>{user.lastName}</p>
+      <p>{user.email}</p>
+      <p>{user.agr}</p>
+      <p>{user.civilStatus}</p>
 
       <>
         <button type="button" onClick={handleDelete}>
@@ -63,4 +60,4 @@ const EventPage = () => {
   );
 };
 
-export default EventPage;
+export default UserPage;
