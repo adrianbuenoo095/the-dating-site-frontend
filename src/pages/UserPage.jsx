@@ -1,7 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-
+import Navbar from "../components/Navbar.jsx";
 const UserPage = () => {
   const { userId } = useParams();
   const [user, setUser] = useState();
@@ -32,7 +31,7 @@ const UserPage = () => {
     try {
       const response = await fetchWithToken(`/users/${userId}`, "DELETE");
       if (response.status === 204) {
-        navigate("/");
+        navigate("/users");
       }
     } catch (error) {
       console.log(error);
@@ -41,15 +40,13 @@ const UserPage = () => {
 
   return user ? (
     <>
-      <h1>Event Details</h1>
+      <Navbar />
+      <h1>User Details</h1>
       <p>{user.firstName}</p>
       <p>{user.lastName}</p>
       <p>{user.email}</p>
-      <p>{user.social}</p>
-      <p>{user.age}</p>
+      <p>{user.agr}</p>
       <p>{user.civilStatus}</p>
-      <p>{user.xxxxx}</p>
-      <p>{user.xxxxxx}</p>
 
       <>
         <button type="button" onClick={handleDelete}>
