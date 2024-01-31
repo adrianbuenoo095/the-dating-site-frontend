@@ -93,60 +93,62 @@ const AuthForm = ({ isLogin = false }) => {
         </div>
         {!isLogin && (
           <>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
-              First Name
-              <input
-                type="text"
-                name="firstName"
-                required
-                value={data.firstName}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Last Name
-              <input
-                type="text"
-                name="lastName"
-                required
-                value={data.lastName}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Age
-              <input
-                type="number"
-                name="age"
-                required
-                value={data.age}
-                onChange={handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">
-              Status
-              <select
-                name="civilStatus"
-                value={data.civilStatus}
-                onChange={handleChange}
-                required
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="firstName"
               >
-                {statusOptions.map((option) => (
-                  
-                  <option key={option.label} value={option.value}>
-                    {option.value}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+                First Name
+                <input
+                  type="text"
+                  name="firstName"
+                  required
+                  value={data.firstName}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Last Name
+                <input
+                  type="text"
+                  name="lastName"
+                  required
+                  value={data.lastName}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Age
+                <input
+                  type="number"
+                  name="age"
+                  required
+                  value={data.age}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+            <div>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Status
+                <select
+                  name="civilStatus"
+                  value={data.civilStatus}
+                  onChange={handleChange}
+                  required
+                >
+                  {statusOptions.map((option) => (
+                    <option key={option.label} value={option.value}>
+                      {option.value}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </>
         )}
         <button
