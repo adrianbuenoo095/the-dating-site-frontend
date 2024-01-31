@@ -56,7 +56,7 @@ const DogForm = () => {
           >
             Name
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
           leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               name="name"
@@ -70,7 +70,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Picture
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               name="picture"
@@ -86,7 +86,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Age
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="number"
               name="age"
@@ -102,7 +102,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Breed
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Schema"
               name="breed"
@@ -118,7 +118,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             User
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Schema"
               name="user"
@@ -133,7 +133,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Status
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               name="civilStatus"
@@ -149,7 +149,7 @@ const DogForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Size
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               name="size"

@@ -41,7 +41,7 @@ const EventForm = () => {
           >
             Name
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
           leading-tight focus:outline-none focus:shadow-outline"
               type="text"
               required
@@ -54,7 +54,7 @@ const EventForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Time
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Date"
               placeholder="time"
@@ -69,7 +69,7 @@ const EventForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             eventDuration
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Number"
               placeholder="number"
@@ -84,7 +84,7 @@ const EventForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             location
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Number"
               placeholder="place"
@@ -99,7 +99,7 @@ const EventForm = () => {
           <label className="block text-gray-700 text-sm font-bold mb-2">
             user
             <input
-              className="shadow appearance-none border rounded 
+              className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               type="Schema"
               placeholder="user"
