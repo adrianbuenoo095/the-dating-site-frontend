@@ -12,13 +12,25 @@ const HomePage = () => {
       fetchData().then((data) => setItems(data));
     }, []);
     async function fetchData() {
-      const dogResponse = await fetch("/api/dogs");
-      const dogs = await dogResponse.json();
+      try {
+        const dogResponse = await fetch("/api/dogs");
+        if (!dogResponse.ok) {
+          throw new Error("Failed to fetch dogs");
+        }
+        const dogs = await dogResponse.json();
 
-      const userResponse = await fetch("/api/users");
-      const users = await userResponse.json();
+        const userResponse = await fetch("/api/users");
+        if (!userResponse.ok) {
+          throw new Error("Failed to fetch users");
+        }
+        const users = await userResponse.json();
 
-      return combineData(dogs, users);
+        return combineData(dogs, users);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error appropriately
+        return []; // Or another appropriate default value
+      }
     }
   } catch (error) {
     console.log(error);

@@ -1,10 +1,7 @@
-
+import NewEventPage from "./NewEventPage";
 
 const UpdateEventPage = () => {
-    return ( 
+  return <NewEventPage />;
+};
 
-
-    );
-}
- 
 export default UpdateEventPage;
