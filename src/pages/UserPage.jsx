@@ -1,7 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-
+import Navbar from "../components/Navbar.jsx";
 const UserPage = () => {
   const { userId } = useParams();
   const [user, setUser] = useState();
@@ -41,6 +40,7 @@ const UserPage = () => {
 
   return user ? (
     <>
+      <Navbar />
       <h1>User Details</h1>
       <p>{user.firstName}</p>
       <p>{user.lastName}</p>
