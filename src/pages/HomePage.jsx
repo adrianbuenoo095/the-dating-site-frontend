@@ -5,57 +5,63 @@ import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 
 const HomePage = () => {
-    const [items, setItems] = useState([]);
-
-    try {
-        useEffect(() => {
-            fetchData().then((data) => setItems(data));
-        }, []);
-
-        async function fetchData() {
+        const [dogs, setDogs] = useState([]);
+        const [users, setUsers] = useState([]);
+        const fetchDogs = async () => {
             try {
-                const dogResponse = await fetch("/api/dogs");
-                if (!dogResponse.ok) {
-                    throw new Error("Failed to fetch dogs");
+                const dogResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/dogs`);
+                if (dogResponse.ok) {
+                    const dogsData = await dogResponse.json();
+                    console.log(dogs);
+                    setDogs(dogsData)
                 }
-                const dogs = await dogResponse.json();
-
-                const userResponse = await fetch("/api/users");
-                if (!userResponse.ok) {
-                    throw new Error("Failed to fetch users");
-                }
-                const users = await userResponse.json();
-
-                return combineData(dogs, users);
             } catch (error) {
-                console.error("Error fetching data:", error);
-                // Handle the error appropriately
-                return []; // Or another appropriate default value
+                console.log(error);
             }
         }
-    } catch (error) {
-        console.log(error);
-    }
 
-    function combineData(dogs, users) {
-        return dogs.map((dog) => {
-            const owner = users.find((user) => user.id === dog.userId);
-            return {...dog, owner};
-        });
-    }
+        const fetchUsers = async () => {
+            try {
+                const userResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/users`);
+                if (userResponse.ok) {
+                    const usersData = await userResponse.json();
+                    console.log(usersData)
+                    setUsers(usersData)
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
 
-    return (
-        <div>
-            <Navbar/>
-            <Header/>
-            <main className="flex flex-wrap justify-center">
-                {items.map((item) => (
-                    <Card key={item.id} {...item} />
-                ))}
-            </main>
-            <Footer/>
-        </div>
-    );
-};
+        useEffect(() => {
+            fetchDogs()
+        }, []);
+
+        useEffect(() => {
+            fetchUsers()
+        }, []);
+
+        let items = combineData(dogs, users)
+        function combineData(dogs, users) {
+            return dogs.map((dog) => {
+                const owner = users.find((user) => user.id === dog.userId);
+                return {...dog, owner};
+            });
+        }
+
+        return (
+            <div>
+                <Navbar/>
+                <Header/>
+                <main className="flex flex-wrap justify-center">
+                    {items.map((item) => (
+                        <Card key={item.id} {...item} />
+                    ))}
+                </main>
+                <Footer/>
+            </div>
+        );
+    }
+;
 
 export default HomePage;
