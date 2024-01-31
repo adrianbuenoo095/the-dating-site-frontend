@@ -10,6 +10,7 @@ import UpdateUserPage from "./pages/UpdateUserPage.jsx";
 import UpdateEventPage from "./pages/UpdateEventPage.jsx";
 import EventDetailsPage from "./pages/EventDetailPage.jsx";
 import UserPage from "./pages/UserPage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
 function App() {
   return (
     <Routes>
@@ -23,6 +24,7 @@ function App() {
       <Route path="/dogs/:dogId" element={<DogDetailsPage />} />
       <Route path="/events/:eventId" element={<EventDetailsPage />} />
       <Route path="/users/:userId" element={<UserPage />} />
+      <Route path="/about" element={<AboutPage />} />
       <Route path="*" exact={true} element={<NotFoundPage />} />
     </Routes>
   );

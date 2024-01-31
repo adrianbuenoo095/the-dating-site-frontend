@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../contexts/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar.jsx";
 const EventDetailsPage = () => {
   const { eventId } = useParams();

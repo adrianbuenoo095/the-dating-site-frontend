@@ -36,6 +36,11 @@ const Navbar = () => {
                 My Events
               </Link>
             </li>
+            <li className="mr-6">
+              <Link to="/about" className="text-white hover:text-gray-300">
+                About us
+              </Link>
+            </li>
             <li>
               <button
                 type="button"
@@ -48,6 +53,11 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex">
+            <li className="mr-6">
+              <Link to="/about" className="text-white hover:text-gray-300">
+                About us
+              </Link>
+            </li>
             <li className="mr-6">
               <Link to="/signup" className="text-white hover:text-gray-300">
                 Signup
