@@ -18,7 +18,7 @@ function App() {
       <Route path="/newevent" element={<NewEventPage />} />
       <Route path="/updateuser" element={<UpdateUserPage />} />
       <Route path="/updateevent" element={<UpdateEventPage />} />
-      <Route path="/dogs/dogId" element={<DogDetailsPage/>} />
+      <Route path="/dogs/dogId" element={<DogDetailsPage />} />
       <Route path="*" exact={true} element={<NotFoundPage />} />
     </Routes>
   );
