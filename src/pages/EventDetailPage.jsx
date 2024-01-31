@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
-
+import Navbar from "../components/Navbar.jsx";
 const EventDetailsPage = () => {
   const { eventId } = useParams();
   const [event, setEvent] = useState();
@@ -41,11 +41,13 @@ const EventDetailsPage = () => {
 
   return event ? (
     <>
+      <Navbar />
       <h1>Event Details</h1>
       <p>{event.name}</p>
-      <p>{event.date}</p>
       <p>{event.time}</p>
-      <p>{event.time}</p>
+      <p>{event.eventDuration}</p>
+      <p>{event.location}</p>
+
       {userId === event.createdBy && (
         <>
           <button type="button" onClick={handleDelete}>
