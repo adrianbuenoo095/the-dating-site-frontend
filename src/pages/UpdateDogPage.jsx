@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext'
 
-const UpdateEventPage = () => {
+const UpdateDogPage = () => {
     const { dogId } = useParams();
 
     const initialValues = {
@@ -166,4 +166,4 @@ const UpdateEventPage = () => {
     );
 }
  
-export default UpdateEventPage;
+export default UpdateDogPage;
