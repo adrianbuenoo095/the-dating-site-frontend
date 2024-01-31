@@ -10,7 +10,7 @@ const Navbar = () => {
       <ul className="flex items-center justify-between">
         <li>
           <Link to="/" className="text-white hover:text-gray-300 mr-6">
-            <img src="../assets/app-icon.webp" />
+            <img className="h-14 w-14" src="../../public/app-icon.webp" />
           </Link>
         </li>
 
