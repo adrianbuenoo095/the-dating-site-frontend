@@ -4,13 +4,21 @@ import { AuthContext } from '../context/AuthContext'
 
 const UpdateEventPage = () => {
     const { eventId } = useParams();
+//Create object with initialValues
+const initialValues = {
+ 'name':'',
+ 'time':'',
+ 'eventDuration':'',
+ 'location':'',
+ 'user':'',
+}
 
-    const [name, setName] = useState ('');
-    const [time, setTime] = useState (0);
-    const [eventDuration, setEventDuration] = useState (0);
-    const [location, setLocation] = useState ('');
-    const [user, setUser] = useState ('');
+//Create data and setData useState(initialValues)
+   
 
+   const [data,setData] = useState(initialValues)
+
+    //dont touch this 
     const { fetchWithToken } = useContext(AuthContext)
     const navigate = useNavigate()
    
@@ -21,11 +29,7 @@ const UpdateEventPage = () => {
     
             if (response.ok) {
               const eventData = await response.json()
-                setName(eventData.name);
-                setTime(eventData.time);
-                setEventDuration(eventData.eventDuration);
-                setLocation(eventData.location);
-                setUser(eventData.user);
+              setData(eventData)
             } else {
                 console.log("Something went wrong");
               }
@@ -40,7 +44,7 @@ const UpdateEventPage = () => {
         const handleSubmit = async (event) => {
             event.preventDefault();
             try {
-                const response = await fetchWithToken(`/events/${eventId}`, 'PUT', {  })
+                const response = await fetchWithToken(`/events/${eventId}`, 'PUT', { data })
                 if (response.status === 200) {
                   navigate(`/events/${eventId}`);
                 }
@@ -48,6 +52,16 @@ const UpdateEventPage = () => {
                 console.log(error)
               }
         };
+
+        //const handleChange...
+        const handleChange = (e)=>{
+          const {name, value} = e.target;
+          setData(prevState => ({
+              ...prevState,
+              [name]:value,
+          }));
+      }
+      
 
     return ( 
         <div className="flex justify-center items-center">
@@ -57,7 +71,7 @@ const UpdateEventPage = () => {
               Name
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 
               leading-tight focus:outline-none focus:shadow-outline"
-               type="text" required value={name} onChange={event=>setName(event.target.value)}/>
+               type="text" required value={data.name} onChange={handleChange}/>
             </label>
           </div>
           <div className="mb-4">
@@ -68,8 +82,8 @@ const UpdateEventPage = () => {
                   type="Date"
                   placeholder="time"
                   required
-                  value={time}
-                  onChange={event=>setTime(event.target.value)}
+                  value={data.time}
+                  onChange={handleChange}
               />
             </label>
          </div>
@@ -81,8 +95,8 @@ const UpdateEventPage = () => {
                   type="Number"
                   placeholder="number"
                   required
-                  value={eventDuration}
-                  onChange={event=>setEventDuration(event.target.value)}
+                  value={data.eventDuration}
+                  onChange={handleChange}
               />
             </label>
          </div>
@@ -94,8 +108,8 @@ const UpdateEventPage = () => {
                   type="Number"
                   placeholder="place"
                   required
-                  value={location}
-                  onChange={event=>setLocation(event.target.value)}
+                  value={data.location}
+                  onChange={handleChange}
               />
             </label>
          </div>
@@ -107,8 +121,8 @@ const UpdateEventPage = () => {
                   type="Schema"
                   placeholder="user"
                   required
-                  value={user}
-                  onChange={event=>setUser(event.target.value)}
+                  value={data.user}
+                  onChange={handleChange}
               />
             </label>
          </div>
