@@ -8,6 +8,8 @@ import DogDetailsPage from "./pages/DogDetailsPage.jsx";
 import NewEventPage from "./pages/NewEventPage";
 import UpdateUserPage from "./pages/UpdateUserPage.jsx";
 import UpdateEventPage from "./pages/UpdateEventPage.jsx";
+import EventDetailsPage from "./pages/EventDetailPage.jsx";
+import UserPage from "./pages/UserPage.jsx";
 function App() {
   return (
     <Routes>
@@ -18,7 +20,9 @@ function App() {
       <Route path="/newevent" element={<NewEventPage />} />
       <Route path="/updateuser" element={<UpdateUserPage />} />
       <Route path="/updateevent" element={<UpdateEventPage />} />
-      <Route path="/dogs/dogId" element={<DogDetailsPage />} />
+      <Route path="/dogs/:dogId" element={<DogDetailsPage />} />
+      <Route path="/events/:eventId" element={<EventDetailsPage />} />
+      <Route path="/users/:userId" element={<UserPage />} />
       <Route path="*" exact={true} element={<NotFoundPage />} />
     </Routes>
   );
