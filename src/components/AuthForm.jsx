@@ -139,6 +139,7 @@ const AuthForm = ({ isLogin = false }) => {
                 required
               >
                 {statusOptions.map((option) => (
+                  
                   <option key={option.label} value={option.value}>
                     {option.value}
                   </option>
