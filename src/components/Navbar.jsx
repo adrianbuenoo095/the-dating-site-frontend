@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-// import logoImage from "../assets/app-icon.png";
+
 const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
@@ -10,8 +10,7 @@ const Navbar = () => {
       <ul className="flex items-center justify-between">
         <li>
           <Link to="/" className="text-white hover:text-gray-300 mr-6">
-            {/*<img src={logoImage} alt="Logo" />*/}
-            <h1>Logo goes here</h1>
+            <img className="h-14 w-14" src="../../public/app-icon.webp" />
           </Link>
         </li>
 
