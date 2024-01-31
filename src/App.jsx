@@ -14,7 +14,7 @@ function App() {
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/newdog" element={<NewDogPage />} />
       <Route path="/newevent" element={<NewEventPage />} />
-      <Route path="/dogs/dogId" element={<DogDetailsPage/>} />
+      <Route path="/dogs/dogId" element={<DogDetailsPage />} />
       <Route path="*" exact={true} element={<NotFoundPage />} />
     </Routes>
   );
