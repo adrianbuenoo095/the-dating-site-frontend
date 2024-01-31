@@ -6,7 +6,7 @@ const AuthForm = ({ isLogin = false }) => {
     firstName: "",
     lastName: "",
     email: "",
-    password: "",
+    passwordHash: "",
     age: 0,
     civilStatus: "single",
     events: [],
@@ -84,9 +84,9 @@ const AuthForm = ({ isLogin = false }) => {
             Password
             <input
               type="password"
-              name="password"
+              name="passwordHash"
               required
-              value={data.password}
+              value={data.passwordHash}
               onChange={handleChange}
             />
           </label>
