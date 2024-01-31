@@ -43,9 +43,10 @@ const EventDetailsPage = () => {
     <>
       <h1>Event Details</h1>
       <p>{event.name}</p>
-      <p>{event.date}</p>
       <p>{event.time}</p>
-      <p>{event.time}</p>
+      <p>{event.eventDuration}</p>
+      <p>{event.location}</p>
+
       {userId === event.createdBy && (
         <>
           <button type="button" onClick={handleDelete}>
