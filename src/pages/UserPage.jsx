@@ -11,7 +11,7 @@ const UserPage = () => {
     const fetchUser = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/users/${userId}`
+          `${import.meta.env.VITE_API_URL}/users/${userId}`,
         );
         if (response.ok) {
           const userData = await response.json();
