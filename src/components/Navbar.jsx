@@ -6,33 +6,33 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useContext(AuthContext);
 
   return (
-    <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
-      <ul>
+    <nav className="bg-gray-800 text-white p-4">
+      <ul className="flex items-center justify-between">
         <li>
           <Link to="/" className="text-white hover:text-gray-300 mr-6">
-            <img src="#" alt="homeimg" />
+            <img src="../assets/app-icon.webp" />
           </Link>
         </li>
 
         {isAuthenticated ? (
           <div className="flex">
             <li className="mr-6">
-              <Link to="/new-dog" className="text-white hover:text-gray-300">
+              <Link to="/newdog" className="text-white hover:text-gray-300">
                 New Dog
               </Link>
             </li>
             <li className="mr-6">
-              <Link to="/my-dog" className="text-white hover:text-gray-300">
+              <Link to="/mydog" className="text-white hover:text-gray-300">
                 My Dog
               </Link>
             </li>
             <li className="mr-6">
-              <Link to="/new-event" className="text-white hover:text-gray-300">
+              <Link to="/newevent" className="text-white hover:text-gray-300">
                 New Event
               </Link>
             </li>
             <li className="mr-6">
-              <Link to="/my-events" className="text-white hover:text-gray-300">
+              <Link to="/myevents" className="text-white hover:text-gray-300">
                 My Events
               </Link>
             </li>
