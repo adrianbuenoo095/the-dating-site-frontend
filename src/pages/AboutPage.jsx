@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer.jsx";
 
 function AboutPage() {
     return (
@@ -47,6 +48,7 @@ function AboutPage() {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

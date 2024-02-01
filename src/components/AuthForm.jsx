@@ -18,6 +18,7 @@ const AuthForm = ({ isLogin = false }) => {
         setPasswordShown(!passwordShown);
     }
 
+    const formTitle = !isLogin ? <h1>Sign up</h1> : <h1>log in</h1>;
     const onChange = (e) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
@@ -25,6 +26,7 @@ const AuthForm = ({ isLogin = false }) => {
         if (age < 18) setError("Invalid age");
         else setError(null);
     };
+
 
     const onSubmit = async (data) => {
         if (error) return;
@@ -58,9 +60,13 @@ const AuthForm = ({ isLogin = false }) => {
                 className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
                 onSubmit={handleSubmit(onSubmit)}
             >
+                {formTitle}
                 {!isLogin && (
                     <>
                         <div className="mb-4">
+
+
+
                             <label className="block text-gray-700 text-sm font-bold mb-2">
                                 First Name
                                 <input
