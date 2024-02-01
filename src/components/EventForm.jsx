@@ -47,7 +47,7 @@ const EventForm = () => {
                         Name
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
           leading-tight focus:outline-none fohandleChange:shadow-outline"
-                               type="text" required value={data.name} onChange={handleChange}/>
+                               type="text" name="name" required value={data.name} onChange={handleChange}/>
                     </label>
                 </div>
                 <div className="mb-4">
@@ -55,7 +55,8 @@ const EventForm = () => {
                         Time
                         <input className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="Date"
+                               type="time"
+                               name="time"
                                required
                                value={data.time}
                                onChange={handleChange}
@@ -67,7 +68,8 @@ const EventForm = () => {
                         EventDuration
                         <input className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="Number"
+                               type="time"
+                               name="eventDuration"
                                required
                                value={data.eventDuration}
                                onChange={handleChange}
@@ -80,7 +82,8 @@ const EventForm = () => {
                         Location
                         <input className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="Number"
+                               type="text"
+                               name="location"
                                required
                                value={data.location}
                                onChange={handleChange}
@@ -94,6 +97,7 @@ const EventForm = () => {
                         <input className="shadow appearance-none border rounded
           w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                type="Schema"
+                               name="user"
                                required
                                value={data.user}
                                onChange={handleChange}
