@@ -5,27 +5,27 @@ import {AuthContext} from "../context/AuthContext.jsx";
 
 const UserPage = () => {
     const {userId} = useParams();
-    const [user, setUser] = useState();
+    console.log(userId)
+    const [user, setUser] = useState("");
     const {fetchWithToken} = useContext(AuthContext)
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}/users/${userId}`
-                );
-                if (response.ok) {
-                    const userData = await response.json();
-                    setUser(userData);
-                } else {
-                    console.log("Something went wrong");
-                }
-            } catch (error) {
-                console.log(error);
+    const fetchUser = async () => {
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/api/users/${userId}`
+            );
+            console.log(response)
+            if (response.ok) {
+                const userData = await response.json();
+                setUser(userData);
+            } else {
+                console.log("Something went wrong");
             }
-        };
-
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
         fetchUser();
     }, [userId]);
 

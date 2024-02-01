@@ -12,7 +12,7 @@ const DogDetailsPage = () => {
         const fetchDog = async () => {
             try {
                 const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}/dogs/${dogId}`
+                    `${import.meta.env.VITE_API_URL}/api/dogs/${dogId}`
                 );
                 if (response.ok) {
                     const dogData = await response.json();
