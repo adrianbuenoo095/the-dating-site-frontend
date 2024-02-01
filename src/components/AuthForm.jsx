@@ -18,7 +18,7 @@ const AuthForm = ({ isLogin = false }) => {
         setPasswordShown(!passwordShown);
     }
 
-    const formTitle = !isLogin ? <h1>Sign up</h1> : <h1>log in</h1>;
+    const formTitle = !isLogin ? <h1>Sign up</h1> : <h1>Log in</h1>;
     const onChange = (e) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
