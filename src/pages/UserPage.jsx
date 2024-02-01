@@ -9,6 +9,7 @@ const UserPage = () => {
     const [user, setUser] = useState("");
     const {fetchWithToken} = useContext(AuthContext)
     const navigate = useNavigate();
+
     const fetchUser = async () => {
         try {
             const response = await fetch(
@@ -25,27 +26,11 @@ const UserPage = () => {
             console.log(error);
         }
     };
-    useEffect(() => {
-        fetchUser();
-    }, [userId]);
 
-    const handleDelete = async () => {
-        try {
-            const response = await fetchWithToken(`/users/${userId}`, "DELETE");
-            if (response.status === 204) {
-                navigate("/users");
-            }
-        } catch (error) {
-            console.log(error);
 
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
+useEffect(() => {
     fetchUser();
-  }, [userId]);
+}, [userId]);
 
   const handleDelete = async () => {
     try {
@@ -59,8 +44,9 @@ const UserPage = () => {
   };
 
   return user ? (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+      <>
       <Navbar />
+    <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="bg-white shadow overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <h1 className="text-2xl font-bold text-gray-900">User Details</h1>
@@ -118,6 +104,7 @@ const UserPage = () => {
         </div>
       </div>
     </div>
+          </>
   ) : (
     <h2 className="text-center text-2xl font-semibold">Loading...</h2>
   );
