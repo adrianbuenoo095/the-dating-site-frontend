@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
+import Footer from "../components/Footer.jsx";
 
 const UserPage = () => {
     const {userId} = useParams();
@@ -104,6 +105,7 @@ useEffect(() => {
         </div>
       </div>
     </div>
+          <Footer/>
           </>
   ) : (
     <h2 className="text-center text-2xl font-semibold">Loading...</h2>

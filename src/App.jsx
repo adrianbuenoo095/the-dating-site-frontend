@@ -35,13 +35,25 @@ function App() {
             }
             />
             <Route path="/updateuser" element={<UpdateUserPage/>}/>
-            <Route path="/updateevent" element={<UpdateEventPage/>}/>
-            <Route path="/updatedog" element={<UpdateDogPage/>}/>
+            <Route path="/updateevent" element={
+                <PrivateRoute>
+                    <UpdateEventPage/>
+                </PrivateRoute>
+            }/>
+            <Route path="/updatedog" element={
+                <PrivateRoute>
+                    <UpdateDogPage/>
+                </PrivateRoute>
+            }/>
             <Route path="/alldogs" element={<AllDogsPage/>}/>
             <Route path="/allevents" element={<AllEventsPage/>}/>
             <Route path="/dogs/:dogId" element={<DogDetailsPage/>}/>
             <Route path="/events/:eventId" element={<EventDetailsPage/>}/>
-            <Route path="/users/:userId" element={<UserPage/>}/>
+            <Route path="/users/:userId" element={
+                <PrivateRoute>
+                    <UserPage/>
+                </PrivateRoute>
+            }/>
             <Route path="/about" element={<AboutPage/>}/>
             <Route path="*" exact={true} element={<NotFoundPage/>}/>
         </Routes>
