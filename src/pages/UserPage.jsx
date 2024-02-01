@@ -4,22 +4,40 @@ import Navbar from "../components/Navbar.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
 
 const UserPage = () => {
-  const { userId } = useParams();
-  const [user, setUser] = useState();
-  const { fetchWithToken } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  useEffect(() => {
+    const {userId} = useParams();
+    console.log(userId)
+    const [user, setUser] = useState("");
+    const {fetchWithToken} = useContext(AuthContext)
+    const navigate = useNavigate();
     const fetchUser = async () => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/users/${userId}`
-        );
-        if (response.ok) {
-          const userData = await response.json();
-          setUser(userData);
-        } else {
-          console.log("Something went wrong");
+        try {
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/api/users/${userId}`
+            );
+            console.log(response)
+            if (response.ok) {
+                const userData = await response.json();
+                setUser(userData);
+            } else {
+                console.log("Something went wrong");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
+        fetchUser();
+    }, [userId]);
+
+    const handleDelete = async () => {
+        try {
+            const response = await fetchWithToken(`/users/${userId}`, "DELETE");
+            if (response.status === 204) {
+                navigate("/users");
+            }
+        } catch (error) {
+            console.log(error);
+
         }
       } catch (error) {
         console.log(error);
