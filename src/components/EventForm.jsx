@@ -1,106 +1,89 @@
-import {useNavigate} from "react-router-dom";
-import {AuthContext} from "../context/AuthContext";
-import {useContext, useState} from 'react'
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from 'react';
 
-const initialValues = {
-    name: "",
-    time: "",
-    eventDuration: "",
-    location: "",
-    user: "",
-}
 const EventForm = () => {
-    const {fetchWithToken} = useContext(AuthContext);
-    const navigate = useNavigate()
-    const [data, setData] = useState(initialValues);
+    const { fetchWithToken } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const { register, handleSubmit } = useForm();
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setData(prevState => ({
-            ...prevState,
-            [name]: value,
-        }))
-    }
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const eventToCreate = data;
-        console.log("Event to Create:", eventToCreate)
+    const onSubmit = async (data) => {
+        console.log("Event to Create:", data);
         try {
-            const response = await fetchWithToken('/events', 'POST', eventToCreate)
+            const response = await fetchWithToken('/events', 'POST', data);
             if (response.status === 201) {
-                const event = await response.json()
-                console.log(event)
-                navigate(`/events/${event._id}`)
+                const event = await response.json();
+                console.log(event);
+                navigate(`/events/${event._id}`);
             } else {
-                console.log('Something went wrong')
+                console.log('Something went wrong');
             }
         } catch (error) {
-            console.error(error)
+            console.error(error);
         }
     };
 
     return (
         <div className="flex justify-center h-screen items-center mb-6">
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Name
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
-          leading-tight focus:outline-none fohandleChange:shadow-outline"
-                               type="text" name="name" required value={data.name} onChange={handleChange}/>
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                            type="text"
+                            id="name"
+                            {...register("name", { required: true })}
+                        />
                     </label>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="time">
                         Time
-                        <input className="shadow appearance-none border rounded
-          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="time"
-                               name="time"
-                               required
-                               value={data.time}
-                               onChange={handleChange}
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                            type="datetime-local" // Changed type to datetime-local
+                            id="time"
+                            {...register("time", { required: true })}
                         />
                     </label>
                 </div>
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                        EventDuration
-                        <input className="shadow appearance-none border rounded
-          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="time"
-                               name="eventDuration"
-                               required
-                               value={data.eventDuration}
-                               onChange={handleChange}
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="eventDuration">
+                        Event Duration (minutes)
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                            type="number"
+                            id="eventDuration"
+                            {...register("eventDuration", { required: true })}
                         />
                     </label>
                 </div>
-
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                        Location
-                        <input className="shadow appearance-none border rounded
-          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="text"
-                               name="location"
-                               required
-                               value={data.location}
-                               onChange={handleChange}
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+                        Location (latitude, longitude)
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                            type="text"
+                            id="location"
+                            {...register("location", { required: true })}
                         />
                     </label>
                 </div>
-
                 <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                        User
-                        <input className="shadow appearance-none border rounded
-          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                               type="Schema"
-                               name="user"
-                               required
-                               value={data.user}
-                               onChange={handleChange}
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="user">
+                        User ID
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700
+                                leading-tight focus:outline-none focus:shadow-outline"
+                            type="text"
+                            id="user"
+                            {...register("user", { required: true })}
                         />
                     </label>
                 </div>
@@ -110,6 +93,6 @@ const EventForm = () => {
             </form>
         </div>
     );
-}
+};
 
 export default EventForm;
