@@ -6,7 +6,7 @@ function AllDogsPage() {
 
   const fetchDogs = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/dogs`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/dogs`);
       if (response.ok) {
         const dogData = await response.json();
         console.log(dogData);
