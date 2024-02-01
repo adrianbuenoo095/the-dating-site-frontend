@@ -7,7 +7,11 @@ const Card = ({ name, breed, image, owner }) => {
         <p className="text-gray-700 text-base">Breed: {breed}</p>
         {owner && (
           <div className="pt-4">
-            <img className="w-full" src={image} alt={`Image of ${name}`} />
+            <img
+              className="w-full"
+              src={owner.image}
+              alt={`Image of ${owner.name}`}
+            />
             <div className="font-bold">Owner: {owner.name}</div>
             <div className="text-sm text-gray-600">Email: {owner.email}</div>
           </div>
