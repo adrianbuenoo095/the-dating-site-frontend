@@ -22,13 +22,16 @@ function AllDogsPage() {
   }, []);
 
   return (
-    <div>
-      <h1>Dogs page</h1>
-      <ul>
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold text-center mb-6">Dogs page</h1>
+      <ul className="space-y-4">
         {dogs.map((dog) => (
-          <li key={dog._id}>
-            <Link to={`/dogs/${dog._id}`}>
-              <p>{dog.name}</p>
+          <li key={dog._id} className="border-b-2 border-gray-200 pb-2">
+            <Link
+              to={`/dogs/${dog._id}`}
+              className="text-blue-600 hover:text-blue-800 transition duration-150 ease-in-out"
+            >
+              <p className="text-lg font-semibold">{dog.name}</p>
             </Link>
           </li>
         ))}
