@@ -14,6 +14,7 @@ To get started with the frontend:
    ```bash
    git clone https://github.com/your-username/the-dating-site-frontend.git
    cd the-dating-site-frontend
+   ```
 2. Install the dependencies:
    ```bash
    npm install
