@@ -1,8 +1,8 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/common/Navbar.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
-import Footer from "../components/Footer.jsx";
+import Footer from "../components/common/Footer.jsx";
 
 const UserPage = () => {
     const {userId} = useParams();

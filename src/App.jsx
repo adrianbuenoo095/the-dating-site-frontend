@@ -12,9 +12,9 @@ import EventDetailsPage from "./pages/EventDetailPage.jsx";
 import UserPage from "./pages/UserPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import UpdateDogPage from "./pages/UpdateDogPage.jsx";
-import AllDogsPage from "./pages/AllDogsPage.jsx";
+import UserDogsPage from "./pages/UserDogsPage.jsx";
 import AllEventsPage from "./pages/AllEventsPage.jsx";
-import PrivateRoute from './components/PrivateRoute'
+import PrivateRoute from './components/privateRoutes/PrivateRoute.jsx'
 
 function App() {
     return (
@@ -45,7 +45,7 @@ function App() {
                     <UpdateDogPage/>
                 </PrivateRoute>
             }/>
-            <Route path="/mydog" element={<AllDogsPage/>}/>
+            <Route path="/mydog" element={<UserDogsPage/>}/>
             <Route path="/myevents" element={<AllEventsPage/>}/>
             <Route path="/dogs/:dogId" element={<DogDetailsPage/>}/>
             <Route path="/events/:eventId" element={<EventDetailsPage/>}/>

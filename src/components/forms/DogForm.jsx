@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext.jsx";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 const DogForm = () => {
   const initialValues = {
@@ -8,7 +8,6 @@ const DogForm = () => {
     picture: "",
     age: 0,
     breed: "",
-    user: "",
     civilStatus: "",
     size: "",
   };
@@ -115,21 +114,21 @@ const DogForm = () => {
           </label>
         </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            User
-            <input
-              className="shadow appearance-none border rounded
-          w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="Schema"
-              name="user"
-              placeholder="user"
-              required
-              value={data.user}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
+        {/*<div className="mb-4">*/}
+        {/*  <label className="block text-gray-700 text-sm font-bold mb-2">*/}
+        {/*    User*/}
+        {/*    <input*/}
+        {/*      className="shadow appearance-none border rounded*/}
+        {/*  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"*/}
+        {/*      type="Schema"*/}
+        {/*      name="user"*/}
+        {/*      placeholder="user"*/}
+        {/*      required*/}
+        {/*      value={data.user}*/}
+        {/*      onChange={handleChange}*/}
+        {/*    />*/}
+        {/*  </label>*/}
+        {/*</div>*/}
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Status

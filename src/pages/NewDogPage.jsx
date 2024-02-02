@@ -1,6 +1,6 @@
-import DogForm from "../components/DogForm";
-import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/Footer.jsx";
+import DogForm from "../components/forms/DogForm.jsx";
+import Navbar from "../components/common/Navbar.jsx";
+import Footer from "../components/common/Footer.jsx";
 
 const NewDogPage = () => {
     return (

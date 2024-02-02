@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/common/Navbar.jsx";
 
 const HomePage = () => {
     const [items, setItems] = useState([]);

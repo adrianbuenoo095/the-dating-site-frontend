@@ -1,7 +1,7 @@
 import {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {AuthContext} from "../context/AuthContext";
+import {AuthContext} from "../../context/AuthContext.jsx";
 import {faEye} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 

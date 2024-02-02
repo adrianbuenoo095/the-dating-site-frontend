@@ -1,6 +1,6 @@
-import AuthForm from "../components/AuthForm";
-import Navbar from "../components/NavBar";
-import Footer from "../components/Footer.jsx";
+import AuthForm from "../components/forms/AuthForm.jsx";
+import Navbar from "../components/common/Navbar.jsx";
+import Footer from "../components/common/Footer.jsx";
 const SignUpPage = () => {
   return (
       <>

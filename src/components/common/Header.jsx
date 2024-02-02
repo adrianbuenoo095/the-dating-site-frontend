@@ -1,4 +1,4 @@
-import headerImage from "../assets/puppy.jpg";
+import headerImage from "../../assets/puppy.jpg";
 import {Button} from "./Button.jsx";
 const Header = () => {
     return (
