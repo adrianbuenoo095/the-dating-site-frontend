@@ -29,7 +29,7 @@ const UpdateDogPage = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        const fetchEvent = async () => {
+        const fetchDog = async () => {
             try {
                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/dogs/${dogId}`)
 
@@ -44,13 +44,13 @@ const UpdateDogPage = () => {
             }
         };
 
-        fetchEvent();
+        fetchDog();
     }, [dogId]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await fetchWithToken(`/events/${dogId}`, 'PUT', {data})
+            const response = await fetchWithToken(`/dogs/${dogId}`, 'PUT', {data})
             if (response.status === 200) {
                 navigate(`/dogs/${dogId}`);
             }

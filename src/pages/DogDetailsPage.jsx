@@ -1,6 +1,8 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 const DogDetailsPage = () => {
     const {dogId} = useParams();
@@ -40,6 +42,8 @@ const DogDetailsPage = () => {
     };
 
     return (
+        <>
+        <Navbar/>
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="max-w-screen-lg mx-auto p-6 bg-white rounded-md shadow-md flex">
                 {dog ? (
@@ -72,6 +76,8 @@ const DogDetailsPage = () => {
                 )}
             </div>
         </div>
+            <Footer/>
+    </>
     );
 };
 

@@ -40,13 +40,13 @@ function App() {
                     <UpdateEventPage/>
                 </PrivateRoute>
             }/>
-            <Route path="/updatedog" element={
+            <Route path="/dogs/:dogId/update" element={
                 <PrivateRoute>
                     <UpdateDogPage/>
                 </PrivateRoute>
             }/>
-            <Route path="/alldogs" element={<AllDogsPage/>}/>
-            <Route path="/allevents" element={<AllEventsPage/>}/>
+            <Route path="/mydog" element={<AllDogsPage/>}/>
+            <Route path="/myevents" element={<AllEventsPage/>}/>
             <Route path="/dogs/:dogId" element={<DogDetailsPage/>}/>
             <Route path="/events/:eventId" element={<EventDetailsPage/>}/>
             <Route path="/users/:userId" element={

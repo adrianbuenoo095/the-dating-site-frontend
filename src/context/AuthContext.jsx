@@ -52,6 +52,7 @@ const AuthContextProvider = ({ children }) => {
           method,
         },
       );
+      console.log(response)
       return response;
     } catch (error) {
       console.error(error);

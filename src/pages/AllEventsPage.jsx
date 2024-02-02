@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 function AllEventsPage() {
   const [events, setEvents] = useState([]);
@@ -21,6 +23,8 @@ function AllEventsPage() {
   }, []);
 
   return (
+      <>
+        <Navbar/>
     <div className="max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-2xl font-bold text-center mb-6">Events Page</h1>
       <ul className="space-y-4">
@@ -36,6 +40,8 @@ function AllEventsPage() {
         ))}
       </ul>
     </div>
+        <Footer/>
+      </>
   );
 }
 
