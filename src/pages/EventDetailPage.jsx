@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 const EventDetailsPage = () => {
   const { eventId } = useParams();
@@ -45,12 +46,12 @@ const EventDetailsPage = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
         <div className="max-w-screen-lg mx-auto p-6 bg-white rounded-md shadow-md flex">
-          {dog ? (
+          {event ? (
             <>
               <div className="w-1/2 mr-6">
                 <img
-                  src={dog.picture}
-                  alt={dog.name}
+                  src={event.picture}
+                  alt={event.name}
                   className="w-full h-auto rounded-md"
                 />
               </div>
@@ -74,7 +75,7 @@ const EventDetailsPage = () => {
                   </p>
                 </div>
                 <p className="mb-4">
-                  <span className="font-semibold">Owner:</span> {dog.user}
+                  <span className="font-semibold">Owner:</span> {event.user}
                 </p>
                 {userId === event.createdBy && (
                   <>
