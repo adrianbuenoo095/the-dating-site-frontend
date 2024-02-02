@@ -6,8 +6,7 @@ This is the frontend for a dating site for dog-lovers who want to date or simply
    * JavaScript
    * React
    * React Router
-   * Axios
-   * CSS/SASS
+   * Tailwindcss
 
 ## Getting Started
 To get started with the frontend:
