@@ -50,15 +50,12 @@ The application should be running on http://localhost:3000 by default. Open your
    * User profile creation and management
    * Browse and search events
    * Interact with other users through dog profiles
-   * Upload and manage images
 
 ## Available Scripts
 In the project directory, you can run:
 
-   * npm start: Runs the app in development mode.
-   * npm test: Launches the test runner.
+   * npm run dev: Runs the app in development mode.
    * npm run build: Builds the app for production.
-   * npm run eject: Ejects the app from Create React App configuration.
 
 ## Contributing
 Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
