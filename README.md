@@ -3,11 +3,11 @@
 This is the frontend for a dating site for dog-lovers who want to date or simply meet up. Users can sign up, create profiles, browse events, and interact with other users through their dogs.
 
 ## Technologies Used
-- JavaScript
-- React
-- React Router
-- Axios
-- CSS/SASS
+   * JavaScript
+   * React
+   * React Router
+   * Axios
+   * CSS/SASS
 
 ## Getting Started
 To get started with the frontend:
