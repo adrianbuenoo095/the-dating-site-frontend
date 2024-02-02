@@ -10,7 +10,7 @@ const Header = () => {
                     style={{ backgroundImage: `url(${headerImage})` }}
                 >
                     <h1 className="text-4xl font-bold text-white">
-                        Let&apos;s matched
+                        Let&apos;s walk our dogs
                     </h1>
                     <Button/>
                 </div>
