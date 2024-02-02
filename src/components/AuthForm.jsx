@@ -2,13 +2,23 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../context/AuthContext";
+import {faEye} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
+
+const eye  = <FontAwesomeIcon icon={faEye}/>;
 const AuthForm = ({ isLogin = false }) => {
+
     const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const navigate = useNavigate();
     const { saveToken } = useContext(AuthContext);
     const [error, setError] = useState(null);
+    const [passwordShown, setPasswordShown] = useState(false);
+    const togglePasswordVisibility = () =>{
+        setPasswordShown(!passwordShown);
+    }
 
+    const formTitle = !isLogin ? <h1>Sign up</h1> : <h1>Log in</h1>;
     const onChange = (e) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
@@ -16,6 +26,7 @@ const AuthForm = ({ isLogin = false }) => {
         if (age < 18) setError("Invalid age");
         else setError(null);
     };
+
 
     const onSubmit = async (data) => {
         if (error) return;
@@ -49,9 +60,13 @@ const AuthForm = ({ isLogin = false }) => {
                 className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
                 onSubmit={handleSubmit(onSubmit)}
             >
+                {formTitle}
                 {!isLogin && (
                     <>
                         <div className="mb-4">
+
+
+
                             <label className="block text-gray-700 text-sm font-bold mb-2">
                                 First Name
                                 <input
@@ -129,13 +144,16 @@ const AuthForm = ({ isLogin = false }) => {
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Password
-                        <input
-                            className="shadow appearance-none border rounded
+                        <div className="relative">
+                            <input
+                                className="shadow appearance-none border rounded
                 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="password"
-                            name="password"
-                            {...register("password", { required: true })}
-                        />
+                                type={passwordShown ? "text" : "password"}
+                                name="password"
+                                {...register("password", { required: true })}
+                            />
+                            <i className="absolute right-0 top-0 mt-2 mr-3" onClick={togglePasswordVisibility}>{eye}</i>
+                        </div>
                     </label>
                     {errors.password && <span className="text-red-500">Password is required</span>}
                 </div>
