@@ -1,20 +1,19 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { AuthContext } from "../context/AuthContext";
+import {useContext, useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {useForm} from "react-hook-form";
+import {AuthContext} from "../context/AuthContext";
 import {faEye} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
-const eye  = <FontAwesomeIcon icon={faEye}/>;
-const AuthForm = ({ isLogin = false }) => {
-
-    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
+const eye = <FontAwesomeIcon icon={faEye}/>;
+const AuthForm = ({isLogin = false}) => {
+    const {register, handleSubmit, formState: {errors}, setValue} = useForm();
     const navigate = useNavigate();
-    const { saveToken } = useContext(AuthContext);
+    const {saveToken} = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [passwordShown, setPasswordShown] = useState(false);
-    const togglePasswordVisibility = () =>{
+    const togglePasswordVisibility = () => {
         setPasswordShown(!passwordShown);
     }
 
@@ -23,10 +22,9 @@ const AuthForm = ({ isLogin = false }) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
         const age = currentYear - year;
-        if (age < 18) setError("Invalid age");
+        if (age < 18) setError("You are under 18");
         else setError(null);
     };
-
 
     const onSubmit = async (data) => {
         if (error) return;
@@ -35,7 +33,7 @@ const AuthForm = ({ isLogin = false }) => {
                 `${import.meta.env.VITE_API_URL}/auth/${isLogin ? "login" : "signup"}`,
                 {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {"Content-Type": "application/json"},
                     body: JSON.stringify(data),
                 }
             );
@@ -64,9 +62,6 @@ const AuthForm = ({ isLogin = false }) => {
                 {!isLogin && (
                     <>
                         <div className="mb-4">
-
-
-
                             <label className="block text-gray-700 text-sm font-bold mb-2">
                                 First Name
                                 <input
@@ -74,7 +69,7 @@ const AuthForm = ({ isLogin = false }) => {
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="text"
                                     name="firstName"
-                                    {...register("firstName", { required: true })}
+                                    {...register("firstName", {required: true})}
                                 />
                             </label>
                             {errors.firstName && <span className="text-red-500">First Name is required</span>}
@@ -87,7 +82,7 @@ const AuthForm = ({ isLogin = false }) => {
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="text"
                                     name="lastName"
-                                    {...register("lastName", { required: true })}
+                                    {...register("lastName", {required: true})}
                                 />
                             </label>
                             {errors.lastName && <span className="text-red-500">Last Name is required</span>}
@@ -116,7 +111,7 @@ const AuthForm = ({ isLogin = false }) => {
                                     className="shadow appearance-none border rounded
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     name="civilStatus"
-                                    {...register("civilStatus", { required: true })}
+                                    {...register("civilStatus", {required: true})}
                                 >
                                     <option value="">Select Civil Status</option>
                                     <option value="single">Single</option>
@@ -136,7 +131,7 @@ const AuthForm = ({ isLogin = false }) => {
                 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="email"
                             name="email"
-                            {...register("email", { required: true })}
+                            {...register("email", {required: true})}
                         />
                     </label>
                     {errors.email && <span className="text-red-500">Email is required</span>}
@@ -150,7 +145,7 @@ const AuthForm = ({ isLogin = false }) => {
                 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 type={passwordShown ? "text" : "password"}
                                 name="password"
-                                {...register("password", { required: true })}
+                                {...register("password", {required: true})}
                             />
                             <i className="absolute right-0 top-0 mt-2 mr-3" onClick={togglePasswordVisibility}>{eye}</i>
                         </div>
