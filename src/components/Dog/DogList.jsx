@@ -44,11 +44,14 @@ const HomePage = () => {
                 return {...dog, owner};
             });
         }
+
         return (
             <>
             <div>
                     {userDogs.map((dog) => (
-                            <DogCard  key={dog.id} {...dog} />
+                        <div  key={dog.name}>
+                            <DogCard  {...dog} />
+                        </div>
                     ))}
             </div>
             </>
