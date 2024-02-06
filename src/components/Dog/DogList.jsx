@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import DogCard from "./DogCard.jsx";
 
-const HomePage = () => {
+const DogList = () => {
         const [dogs, setDogs] = useState([]);
         const [users, setUsers] = useState([]);
         const fetchDogs = async () => {
@@ -49,9 +49,7 @@ const HomePage = () => {
             <>
             <div>
                     {userDogs.map((dog) => (
-                        <div  key={dog.name}>
-                            <DogCard  {...dog} />
-                        </div>
+                            <DogCard  key={dog.name} {...dog} />
                     ))}
             </div>
             </>
@@ -59,4 +57,4 @@ const HomePage = () => {
     }
 ;
 
-export default HomePage;
+export default DogList;
