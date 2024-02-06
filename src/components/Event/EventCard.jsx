@@ -11,7 +11,6 @@ const EventCard = ({event}) => {
                                 />
                             </div>
                             <div className="w-1/2">
-                                <h1 className="text-3xl font-semibold mb-4">Event Details</h1>
                                 <div className="mb-4">
                                     <p>
                                         <span className="font-semibold">Event Name:</span>{" "}
