@@ -22,9 +22,6 @@ const EventCard = ({event}) => {
                         {event.location}
                     </p>
                 </div>
-                <p className="mb-4">
-                    <span className="font-semibold">Owner:</span> {event.user}
-                </p>
         </div>
     );
 };
