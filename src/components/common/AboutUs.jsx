@@ -2,6 +2,7 @@
 
 let userImage= "/assets/images/jesus.jpeg"
 let secondUserImage= "/assets/images/adrianbueno.jpg"
+let thirdUserImage= "/assets/images/nadjim.jpg"
 const AboutUs = () => {
     return (
             <div className="mainCtn about bg-gray-100 py-10 px-5">
@@ -47,8 +48,8 @@ const AboutUs = () => {
                         <div className="text-center px-4 mb-6">
                             <img
                                 className="w-32 h-32 object-cover rounded-full mx-auto"
-                                src="#"
-                                alt="image of Adrian"
+                                src={thirdUserImage}
+                                alt="image of Nadjim"
                             />
                             <p className="text-xl mt-2">Nadjim, CEO</p>
                         </div>
