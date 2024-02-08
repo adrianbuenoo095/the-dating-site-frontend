@@ -1,6 +1,7 @@
 
 
-let userImage= "/assets/jesus.jpeg"
+let userImage= "/assets/images/jesus.jpeg"
+let secondUserImage= "/assets/images/adrianbueno.jpg"
 const AboutUs = () => {
     return (
             <div className="mainCtn about bg-gray-100 py-10 px-5">
@@ -23,7 +24,7 @@ const AboutUs = () => {
                         to another country with someone you met here.
                     </p>
                     <p className="text-lg text-gray-700 mt-4">
-                        You and your dog deserve to be loved. Don't be alone, find your
+                        You and your dog deserve to be loved. Don&apos;t be alone, find your
                         love.
                     </p>
                     <div className="flex flex-wrap justify-center mt-8">
@@ -38,7 +39,7 @@ const AboutUs = () => {
                         <div className="text-center px-4 mb-6">
                             <img
                                 className="w-32 h-32 object-cover rounded-full mx-auto"
-                                src="#"
+                                src={secondUserImage}
                                 alt="image of Adrian"
                             />
                             <p className="text-xl mt-2">Adrian, CEO</p>
