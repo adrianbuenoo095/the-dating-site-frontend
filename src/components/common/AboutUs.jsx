@@ -1,7 +1,7 @@
 
 
-let userImage= "/assets/jesus.jpeg";
-let secondUserImage =  "/assets/adrianbueno.jpg";
+let userImage= "/assets/images/jesus.jpeg";
+let secondUserImage =  "/assets/images/adrianbueno.jpg";
 const AboutUs = () => {
     return (
             <div className="mainCtn about bg-gray-100 py-10 px-5">
@@ -24,7 +24,7 @@ const AboutUs = () => {
                         to another country with someone you met here.
                     </p>
                     <p className="text-lg text-gray-700 mt-4">
-                        You and your dog deserve to be loved. Don't be alone, find your
+                        You and your dog deserve to be loved. Don&apos;t be alone, find your
                         love.
                     </p>
                     <div className="flex flex-wrap justify-center mt-8">
