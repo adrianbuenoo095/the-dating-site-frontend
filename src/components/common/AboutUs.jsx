@@ -1,8 +1,8 @@
+import userImage from "/assets/images/jesus.jpeg";
+import  secondUserImage from "/assets/images/adrianbueno.jpg"
+import thirdUserImage from "/assets/images/nadjim.jpg"
 
 
-let userImage= "/assets/images/jesus.jpeg"
-let secondUserImage= "/assets/images/adrianbueno.jpg"
-let thirdUserImage= "/assets/images/nadjim.jpg"
 const AboutUs = () => {
     return (
             <div className="mainCtn about bg-gray-100 py-10 px-5">
