@@ -1,6 +1,6 @@
-import userImage from "/assets/images/jesus.jpeg";
-import  secondUserImage from "/assets/images/adrianbueno.jpg"
-import thirdUserImage from "/assets/images/nadjim.jpg"
+import userImage from "/src/assets/images/jesus.jpeg";
+import  secondUserImage from "/src/assets/images/adrianbueno.jpg"
+import thirdUserImage from "/src/assets/images/nadjim.jpg"
 
 
 const AboutUs = () => {
