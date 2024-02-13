@@ -6,7 +6,8 @@ import {faEye} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
-const eye = <FontAwesomeIcon icon={faEye}/>;
+
+const eyeIcon = <FontAwesomeIcon icon={faEye}/>;
 const AuthForm = ({isLogin = false}) => {
     const {register, handleSubmit, formState: {errors}, setValue} = useForm();
     const navigate = useNavigate();
@@ -147,7 +148,7 @@ const AuthForm = ({isLogin = false}) => {
                                 name="password"
                                 {...register("password", {required: true})}
                             />
-                            <i className="absolute right-0 top-0 mt-2 mr-3" onClick={togglePasswordVisibility}>{eye}</i>
+                            <i className="absolute right-0 top-0 mt-2 mr-3" onClick={togglePasswordVisibility}>{eyeIcon}</i>
                         </div>
                     </label>
                     {errors.password && <span className="text-red-500">Password is required</span>}
