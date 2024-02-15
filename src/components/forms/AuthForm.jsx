@@ -5,8 +5,6 @@ import {AuthContext} from "../../context/AuthContext.jsx";
 import {faEye} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-
-
 const eyeIcon = <FontAwesomeIcon icon={faEye}/>;
 const AuthForm = ({isLogin = false}) => {
     const {register, handleSubmit, formState: {errors}, setValue} = useForm();
@@ -19,7 +17,7 @@ const AuthForm = ({isLogin = false}) => {
     }
 
     const formTitle = !isLogin ? <h1>Sign up</h1> : <h1>Log in</h1>;
-    const onChange = (e) => {
+    const handleChange = (e) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
         const age = currentYear - year;
@@ -97,8 +95,8 @@ const AuthForm = ({isLogin = false}) => {
                                     type="date"
                                     name="birthday"
                                     onChange={(e) => {
-                                        setValue("birthday", e.target.value); // Set the value of the field
-                                        onChange(e); // Trigger age validation
+                                        setValue("birthday", e.target.value);
+                                        handleChange(e);
                                     }}
                                 />
                             </label>
