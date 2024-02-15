@@ -21,8 +21,12 @@ const AuthForm = ({isLogin = false}) => {
         const currentYear = new Date().getFullYear();
         const year = e.target.value.split("-")[0];
         const age = currentYear - year;
-        if (age < 18) setError("You are under 18");
-        else setError(null);
+        if (age < 18) {
+            setError("You are under 18");
+        }
+        else {
+            setError(null);
+        }
     };
 
     const onSubmit = async (data) => {
