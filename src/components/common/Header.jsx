@@ -1,5 +1,6 @@
 import headerImage from "/src/assets/images/puppy.jpg";
 import {Button} from "./Button.jsx";
+import {Link} from "react-router-dom";
 const Header = () => {
     return (
         <>
@@ -12,7 +13,11 @@ const Header = () => {
                     <h1 className="text-4xl font-bold text-white">
                         Let&apos;s get Dogether!!!
                     </h1>
-                    <Button/>
+                    <Link to="/signup">
+                    <Button>
+                        Sign Up
+                    </Button>
+                    </Link>
                 </div>
             </header>
         </>
