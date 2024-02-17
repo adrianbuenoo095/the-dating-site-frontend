@@ -6,7 +6,6 @@ const Header = () => {
         <>
             <header>
                 <div
-                    id="Home"
                     className="flex flex-col justify-center items-center  max-w-full h-screen bg-cover"
                     style={{ backgroundImage: `url(${headerImage})` }}
                 >
