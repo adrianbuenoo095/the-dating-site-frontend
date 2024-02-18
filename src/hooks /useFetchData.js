@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 export const useFetchData = (url) => {
     const [data, setData] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
     const fetchData = async () => {
         try {
             const response = await fetch(url);
