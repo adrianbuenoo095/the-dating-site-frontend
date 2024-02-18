@@ -5,6 +5,7 @@ import Loading from "../common/Loading.jsx";
 
 const EventList = () => {
     const {data, isLoaded } = useFetchData(`${import.meta.env.VITE_API_URL}/api/events/`)
+    console.log("data",data)
     return (
         <div>
             {!isLoaded && <Loading/>}
