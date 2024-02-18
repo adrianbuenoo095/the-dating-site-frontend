@@ -7,19 +7,14 @@ import {useEffect, useState} from "react";
 const EventDetailsPage = () => {
 
     const {eventId} = useParams();
-    console.log("eventId", eventId)
-    const [event, setEvent] = useState();
-    console.log("event", event)
+    const [event, setEvent] = useState({});
     const fetchEvent = async () => {
         try {
-            console.log("helllo")
             const response = await fetch(
                 `${import.meta.env.VITE_API_URL}/api/events/${eventId}`
             );
-            console.log("response", response)
             if (response.ok) {
                 const eventData = await response.json();
-                console.log("eventData", eventData)
                 setEvent(eventData);
             } else {
                 console.log("Something went wrong");
@@ -32,7 +27,6 @@ const EventDetailsPage = () => {
     useEffect(() => {
         fetchEvent();
     }, [eventId]);
-
 
     return (
         <>
