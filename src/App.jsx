@@ -50,9 +50,21 @@ function App() {
                     <UserDogsPage/>
                 </PrivateRoute>
             }/>
-            <Route path="/myevents" element={<AllEventsPage/>}/>
-            <Route path="/dogs/:dogId" element={<DogDetailsPage/>}/>
-            <Route path="/events/:eventId" element={<EventDetailsPage/>}/>
+            <Route path="/myevents" element={
+                <PrivateRoute>
+                    <AllEventsPage/>
+                </PrivateRoute>
+            }/>
+            <Route path="/dogs/:dogId" element={
+                <PrivateRoute>
+                    <DogDetailsPage/>
+                </PrivateRoute>
+            }/>
+            <Route path="/events/:eventId" element={
+                <PrivateRoute>
+                    <EventDetailsPage/>
+                </PrivateRoute>
+            }/>
             <Route path="/users/:userId" element={
                 <PrivateRoute>
                     <UserPage/>
