@@ -7,28 +7,29 @@ import {useEffect, useState} from "react";
 const EventDetailsPage = () => {
 
     const {eventId} = useParams();
-    console.log("eventId",eventId)
+    console.log("eventId", eventId)
     const [event, setEvent] = useState();
-    console.log("event",event)
+    console.log("event", event)
+    const fetchEvent = async () => {
+        try {
+            console.log("helllo")
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/api/events/${eventId}`
+            );
+            console.log("response", response)
+            if (response.ok) {
+                const eventData = await response.json();
+                console.log("eventData", eventData)
+                setEvent(eventData);
+            } else {
+                console.log("Something went wrong");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
-        const fetchEvent = async () => {
-            try {
-                const response = await fetch(
-                    `${import.meta.env.VITE_API_URL}/api/events/${eventId}`
-                );
-                if (response.ok) {
-                    const eventData = await response.json();
-                    console.log("eventData", eventData)
-                    setEvent(eventData);
-                } else {
-                    console.log("Something went wrong");
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
         fetchEvent();
     }, [eventId]);
 
@@ -36,7 +37,7 @@ const EventDetailsPage = () => {
     return (
         <>
             <Navbar/>
-            <EventDetailsCard event={event}/>
+            {event && <EventDetailsCard event={event}/>}
             <Footer/>
         </>
     );
