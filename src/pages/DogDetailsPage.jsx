@@ -48,7 +48,6 @@ const DogDetailsPage = () => {
     return (
         <>
             <Navbar/>
-            {isLoading && <Loading/>}
             {dog && <DogDetailsCard dog={dog} userId={userId} handleDelete={handleDelete()} dogId={dogId}/>}
             <Footer/>
         </>
