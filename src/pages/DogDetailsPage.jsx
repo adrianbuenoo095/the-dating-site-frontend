@@ -1,13 +1,16 @@
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
 import Navbar from "../components/common/Navbar.jsx";
 import Footer from "../components/common/Footer.jsx";
+import DogDetailsCard from "../components/Dog/DogDetailsCard.jsx";
+import Loading from "../components/common/Loading.jsx";
 
 const DogDetailsPage = () => {
     const {dogId} = useParams();
     const [dog, setDog] = useState();
     const {fetchWithToken, userId} = useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -18,6 +21,7 @@ const DogDetailsPage = () => {
                 );
                 if (response.ok) {
                     const dogData = await response.json();
+                    setIsLoading(true)
                     setDog(dogData);
                 } else {
                     console.log("Something went wrong");
@@ -43,41 +47,11 @@ const DogDetailsPage = () => {
 
     return (
         <>
-        <Navbar/>
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="max-w-screen-lg mx-auto p-6 bg-white rounded-md shadow-md flex">
-                {dog ? (
-                    <>
-                        <div className="w-1/2 mr-6">
-                            <img src={dog.picture} alt={dog.name} className="w-full h-auto rounded-md" />
-                        </div>
-                        <div className="w-1/2">
-                            <h1 className="text-3xl font-semibold mb-4">Dog Details</h1>
-                            <div className="mb-4">
-                                <p><span className="font-semibold">Name:</span> {dog.name}</p>
-                                <p><span className="font-semibold">Age:</span> {dog.age}</p>
-                                <p><span className="font-semibold">Breed:</span> {dog.breed}</p>
-                                <p><span className="font-semibold">Civil Status:</span> {dog.civilStatus}</p>
-                                <p><span className="font-semibold">Size:</span> {dog.size}</p>
-                            </div>
-                            <p className="mb-4"><span className="font-semibold">Owner:</span> {dog.user}</p>
-                            {userId === dog.user && (
-                                <>
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" type="button" onClick={handleDelete}>
-                                        Delete
-                                    </button>
-                                    <Link to={`/dogs/${dogId}/update`} className="text-blue-500 hover:text-blue-700 font-semibold">Update</Link>
-                                </>
-                            )}
-                        </div>
-                    </>
-                ) : (
-                    <h2>Loading...</h2>
-                )}
-            </div>
-        </div>
+            <Navbar/>
+            {isLoading && <Loading/>}
+            {dog && <DogDetailsCard dog={dog} userId={userId} handleDelete={handleDelete()} dogId={dogId}/>}
             <Footer/>
-    </>
+        </>
     );
 };
 
