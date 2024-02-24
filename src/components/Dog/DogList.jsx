@@ -48,7 +48,7 @@ const DogList = () => {
         return (
             <>
             <div>
-                    {userDogs.map((dog) => (
+                    {userDogs && userDogs.map((dog) => (
                             <DogCard  key={dog.name} {...dog} />
                     ))}
             </div>
