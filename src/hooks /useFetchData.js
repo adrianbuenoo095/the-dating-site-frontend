@@ -9,9 +9,9 @@ export const useFetchData = (url) => {
             const response = await fetch(url);
             console.log("response:", response)
             if (response.ok) {
-                const dogsData = await response.json();
+                const payload = await response.json();
                 setIsLoaded(true);
-                setData(dogsData);
+                setData(payload);
             }
         } catch (error) {
             setError(error)
