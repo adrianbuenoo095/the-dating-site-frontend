@@ -1,5 +1,5 @@
 import {useNavigate, useParams} from "react-router-dom";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {AuthContext} from "../context/AuthContext";
 import Navbar from "../components/common/Navbar.jsx";
 import Footer from "../components/common/Footer.jsx";
@@ -13,7 +13,6 @@ const DogDetailsPage = () => {
     const pathRoute= `/api/dogs/${dogId}`;
     const {data} = useFetchData(`${import.meta.env.VITE_API_URL}${pathRoute}`)
 
-    console.log("data", data)
     const handleDelete = async () => {
         try {
             const response = await fetchWithToken(`/dogs/${dogId}`, "DELETE");
