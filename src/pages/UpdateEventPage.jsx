@@ -4,7 +4,6 @@ import {AuthContext} from "../context/AuthContext.jsx";
 
 const UpdateEventPage = () => {
     const {eventId} = useParams();
-    //Create object with initialValues
     const initialValues = {
         name: "",
         time: "",
@@ -15,7 +14,6 @@ const UpdateEventPage = () => {
 
     const [data, setData] = useState(initialValues);
 
-    //dont touch this
     const {fetchWithToken} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -54,7 +52,6 @@ const UpdateEventPage = () => {
         }
     };
 
-    //const handleChange...
     const handleChange = (e) => {
         const {name, value} = e.target;
         setData((prevState) => ({
