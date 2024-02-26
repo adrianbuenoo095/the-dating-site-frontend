@@ -7,7 +7,6 @@ export const useFetchData = (url) => {
     const fetchData = async () => {
         try {
             const response = await fetch(url);
-            console.log("response:", response)
             if (response.ok) {
                 const payload = await response.json();
                 setIsLoaded(true);
