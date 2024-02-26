@@ -1,19 +1,19 @@
 import {Route, Routes} from "react-router-dom";
-import HomePage from "./pages/HomePage.jsx";
-import LoginPage from "./pages/LoginPage";
-import NotFoundPage from "./pages/NotFoundpage";
-import SignUpPage from "./pages/SignUpPage";
-import NewDogPage from "./pages/NewDogPage";
-import DogDetailsPage from "./pages/DogDetailsPage.jsx";
-import NewEventPage from "./pages/NewEventPage";
-import UpdateUserPage from "./pages/UpdateUserPage.jsx";
-import UpdateEventPage from "./pages/UpdateEventPage.jsx";
-import EventDetailsPage from "./pages/EventDetailPage.jsx";
-import UserPage from "./pages/UserPage.jsx";
-import AboutPage from "./pages/AboutPage.jsx";
-import UpdateDogPage from "./pages/UpdateDogPage.jsx";
-import UserDogsPage from "./pages/UserDogsPage.jsx";
-import AllEventsPage from "./pages/AllEventsPage.jsx";
+import HomePage from "./pages/layout/HomePage.jsx";
+import LoginPage from "./pages/registration/LoginPage.jsx";
+import NotFoundPage from "./pages/layout/NotFoundpage.jsx";
+import SignUpPage from "./pages/registration/SignUpPage.jsx";
+import NewDogPage from "./pages/dogs/NewDogPage.jsx";
+import DogDetailsPage from "./pages/dogs/DogDetailsPage.jsx";
+import NewEventPage from "./pages/events/NewEventPage.jsx";
+import UpdateUserPage from "./pages/users/UpdateUserPage.jsx";
+import UpdateEventPage from "./pages/events/UpdateEventPage.jsx";
+import EventDetailsPage from "./pages/events/EventDetailPage.jsx";
+import UserPage from "./pages/users/UserPage.jsx";
+import AboutPage from "./pages/layout/AboutPage.jsx";
+import UpdateDogPage from "./pages/dogs/UpdateDogPage.jsx";
+import UserDogsPage from "./pages/users/UserDogsPage.jsx";
+import AllEventsPage from "./pages/events/AllEventsPage.jsx";
 import PrivateRoute from './components/privateRoutes/PrivateRoute.jsx'
 
 function App() {

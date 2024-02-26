@@ -1,5 +1,5 @@
 import {useNavigate, useParams } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext.jsx";
 import { useContext, useEffect, useState } from 'react'
 
 const UpdateUserPage = () => {

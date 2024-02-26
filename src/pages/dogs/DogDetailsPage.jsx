@@ -1,10 +1,10 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useContext} from "react";
-import {AuthContext} from "../context/AuthContext";
-import Navbar from "../components/common/Navbar.jsx";
-import Footer from "../components/common/Footer.jsx";
-import DogDetailsCard from "../components/Dog/DogDetailsCard.jsx";
-import {useFetchData} from "../hooks /useFetchData.js";
+import {AuthContext} from "../../context/AuthContext.jsx";
+import Navbar from "../../components/common/Navbar.jsx";
+import Footer from "../../components/common/Footer.jsx";
+import DogDetailsCard from "../../components/Dog/DogDetailsCard.jsx";
+import {useFetchData} from "../../hooks /useFetchData.js";
 
 const DogDetailsPage = () => {
     const {dogId} = useParams();

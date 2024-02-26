@@ -1,5 +1,5 @@
-import AuthForm from "../components/forms/AuthForm.jsx";
-import Navbar from "../components/common/Navbar.jsx";
+import AuthForm from "../../components/forms/AuthForm.jsx";
+import Navbar from "../../components/common/Navbar.jsx";
 
 const LoginPage = () => {
     return (

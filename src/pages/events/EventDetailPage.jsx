@@ -1,8 +1,8 @@
-import Navbar from "../components/common/Navbar.jsx";
-import Footer from "../components/common/Footer.jsx";
-import EventDetailsCard from "../components/Event/EventDetailsCard.jsx";
+import Navbar from "../../components/common/Navbar.jsx";
+import Footer from "../../components/common/Footer.jsx";
+import EventDetailsCard from "../../components/Event/EventDetailsCard.jsx";
 import {useParams} from "react-router-dom";
-import {useFetchData} from "../hooks /useFetchData.js";
+import {useFetchData} from "../../hooks /useFetchData.js";
 
 const EventDetailsPage = () => {
 
