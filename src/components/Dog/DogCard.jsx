@@ -1,5 +1,4 @@
 const DogCard = ({ name, breed, picture, owner }) => {
-    const {firstName, lastName} = owner;
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
         <h1>Users Dog</h1>
@@ -9,7 +8,6 @@ const DogCard = ({ name, breed, picture, owner }) => {
         <p className="text-gray-700 text-base">Breed: {breed}</p>
         {owner && (
           <div className="pt-4">
-            <div className="font-bold">Owner: {`${firstName} ${lastName}`}</div>
             <div className="text-sm text-gray-600">Email: {owner.email}</div>
           </div>
         )}
