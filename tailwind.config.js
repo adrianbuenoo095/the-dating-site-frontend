@@ -1,7 +1,9 @@
 /*eslint-env node*/
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
+const hcn = require("html-color-names");
+const { htmlcolors } = hcn;
+const { firebrick } = htmlcolors;
 
 module.exports = {
     content: [
@@ -11,7 +13,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                ...colors
+                firebrick,
             }
         },
     },
