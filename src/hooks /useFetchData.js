@@ -8,7 +8,7 @@ export const useFetchData = (url) => {
     const fetchData = async () => {
         try {
             const response = await fetch(url);
-            if (response.ok) {
+            if (!response.ok) {
                 const payload = await response.json();
                 setIsLoaded(true);
                 setData(payload);
@@ -18,6 +18,7 @@ export const useFetchData = (url) => {
             console.log(error);
         }
     }
+    
     useEffect(() => {
         fetchData()
     }, []);
