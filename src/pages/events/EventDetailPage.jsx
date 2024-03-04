@@ -5,7 +5,7 @@ import {useParams} from "react-router-dom";
 import {useFetchData} from "../../hooks /useFetchData.js";
 
 const EventDetailsPage = () => {
-
+    
     const {eventId} = useParams();
     const pathRoute = `/api/events/${eventId}`;
     const {data} = useFetchData(`${import.meta.env.VITE_API_URL}${pathRoute}`)
