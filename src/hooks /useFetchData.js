@@ -8,15 +8,15 @@ export const useFetchData = (url) => {
     const fetchData = async () => {
         try {
             const response = await fetch(url);
-
-            if (!response.ok) return Promise.reject(await response.json())
-
             const result = await response.json();
-            
-            setIsLoaded(false);
-            setError(false);
-            setData(result);
 
+            if (!response.ok) {
+                return Promise.reject(result)
+            } else {
+                setIsLoaded(false);
+                setError(false);
+                setData(result);
+            }
         } catch (error) {
             setIsLoaded(false)
             setError(error)
