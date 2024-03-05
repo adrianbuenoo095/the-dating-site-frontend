@@ -1,6 +1,6 @@
 import {Button} from "../common/Button.jsx";
 
-const SignUpForm = (handleSubmit, onSubmit, errors, register, setValue, handleChange, error) => {
+const RegistrationForm = ({handleSubmit, onSubmit, errors, register, error}) => {
     return (
         <div>
             <form
@@ -41,10 +41,7 @@ const SignUpForm = (handleSubmit, onSubmit, errors, register, setValue, handleCh
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="date"
                             name="birthday"
-                            onChange={(e) => {
-                                setValue("birthday", e.target.value);
-                                handleChange(e);
-                            }}
+                            {...register("birthday", {required: true})}
                         />
                     </label>
                     {errors.birthday && <span className="text-red-500">Birthday is required</span>}
@@ -75,4 +72,4 @@ const SignUpForm = (handleSubmit, onSubmit, errors, register, setValue, handleCh
     );
 };
 
-export default SignUpForm;
+export default RegistrationForm;

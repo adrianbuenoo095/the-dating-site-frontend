@@ -69,7 +69,7 @@ const AuthForm = ({isLogin = false}) => {
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="text"
                                     name="firstName"
-                                    {...register("firstName", {required: true})}
+                                    {...register("First name", {required: true})}
                                 />
                             </label>
                             {errors.firstName && <span className="text-red-500">First Name is required</span>}
@@ -82,7 +82,7 @@ const AuthForm = ({isLogin = false}) => {
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     type="text"
                                     name="lastName"
-                                    {...register("lastName", {required: true})}
+                                    {...register("Last name", {required: true})}
                                 />
                             </label>
                             {errors.lastName && <span className="text-red-500">Last Name is required</span>}
@@ -96,7 +96,7 @@ const AuthForm = ({isLogin = false}) => {
                                     type="date"
                                     name="birthday"
                                     onChange={(e) => {
-                                        setValue("birthday", e.target.value);
+                                        setValue("Birthday", e.target.value);
                                         handleChange(e);
                                     }}
                                 />
@@ -111,7 +111,7 @@ const AuthForm = ({isLogin = false}) => {
                                     className="shadow appearance-none border rounded
                     w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                     name="civilStatus"
-                                    {...register("civilStatus", {required: true})}
+                                    {...register("Civil status", {required: true})}
                                 >
                                     <option value="">Select Civil Status</option>
                                     <option value="single">Single</option>
