@@ -20,7 +20,7 @@ const SignInForm = () => {
                 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="email"
                         name="email"
-                        {...register("email", {required: true})}
+                        {...register("Email", {required: true})}
                     />
                 </label>
                 {errors.email && <span className="text-red-500">Email is required</span>}
@@ -34,7 +34,7 @@ const SignInForm = () => {
                 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type={passwordShown ? "text" : "password"}
                             name="password"
-                            {...register("password", {required: true})}
+                            {...register("Password", {required: true})}
                         />
                         <i className="absolute right-0 top-0 mt-2 mr-3"
                            onClick={togglePasswordVisibility}>{eyeIcon}</i>
